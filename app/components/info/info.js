@@ -1,3 +1,3 @@
-export function Info() {
-  return <div>Game Over</div>;
+export function Info({ children }) {
+  return <div>{children}</div>;
 }

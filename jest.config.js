@@ -4,6 +4,8 @@ const createJestConfig = nextJest({
   dir: "./",
 });
 
-const config = {};
+const config = {
+  testEnvironment: "jsdom",
+};
 
 module.exports = createJestConfig(config);
