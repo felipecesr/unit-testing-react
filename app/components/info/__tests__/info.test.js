@@ -1,17 +1,5 @@
-import { createRoot } from "react-dom/client";
-import { act } from "react-dom/test-utils";
+import { render } from "../../../test-utils";
 import { Info } from "../info";
-
-afterEach(() => {
-  document.body.innerHTML = "";
-});
-
-function render(Component) {
-  const domNode = document.createElement("div");
-  document.body.appendChild(domNode);
-  const root = createRoot(domNode);
-  act(() => root.render(Component));
-}
 
 test("renders text info", () => {
   render(<Info>Game Over</Info>);
