@@ -58,5 +58,5 @@ export default function Page() {
     );
   }
 
-  return <Info />;
+  return <Info>Game Over, you scored {score} points</Info>;
 }
