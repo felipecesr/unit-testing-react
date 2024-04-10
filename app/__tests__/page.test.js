@@ -1,17 +1,15 @@
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 import Page from "../page";
 
 test("shows next question after submit correct answer", () => {
   render(<Page />);
 
-  const input = document.querySelector("input");
+  const input = screen.getByLabelText(/what is batman's real name\?/i);
   input.value = "Bruce Wayne";
 
   const button = document.querySelector("button");
   fireEvent.click(button);
 
-  expect(document.querySelector(".result").textContent).toEqual("Correct!");
-  expect(document.querySelector(".question").textContent).toEqual(
-    "What is Wonder Woman's real name?"
-  );
+  expect(screen.getByText(/correct!/i)).toBeTruthy();
+  expect(screen.getByText(/what is wonder woman's real name\?/i)).toBeTruthy();
 });
