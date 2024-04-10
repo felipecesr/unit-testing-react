@@ -1,6 +1,6 @@
 export function isEqual(value, other) {
   if (value === other) {
-    return true
+    return true;
   }
-  return false
+  return false;
 }
