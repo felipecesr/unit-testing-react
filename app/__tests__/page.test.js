@@ -1,5 +1,4 @@
-import { act } from "react-dom/test-utils";
-import { render } from "../test-utils";
+import { render, fireEvent } from "@testing-library/react";
 import Page from "../page";
 
 test("shows next question after submit correct answer", () => {
@@ -9,7 +8,7 @@ test("shows next question after submit correct answer", () => {
   input.value = "Bruce Wayne";
 
   const button = document.querySelector("button");
-  act(() => button.click());
+  fireEvent.click(button);
 
   expect(document.querySelector(".result").textContent).toEqual("Correct!");
   expect(document.querySelector(".question").textContent).toEqual(
