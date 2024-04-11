@@ -10,6 +10,8 @@ test("shows next question after submit correct answer", () => {
   const button = document.querySelector("button");
   fireEvent.click(button);
 
-  expect(screen.getByText(/correct!/i)).toBeTruthy();
-  expect(screen.getByText(/what is wonder woman's real name\?/i)).toBeTruthy();
+  expect(screen.getByText(/correct!/i)).toBeInTheDocument();
+  expect(
+    screen.getByText(/what is wonder woman's real name\?/i)
+  ).toBeInTheDocument();
 });
