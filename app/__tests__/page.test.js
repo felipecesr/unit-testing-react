@@ -2,10 +2,15 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Page from "../page";
 
-test("shows next question after submit correct answer", async () => {
-  const user = userEvent.setup();
+function setup(jsx) {
+  return {
+    user: userEvent.setup(),
+    ...render(jsx),
+  };
+}
 
-  render(<Page />);
+test("shows next question after submit correct answer", async () => {
+  const { user } = setup(<Page />);
 
   const input = screen.getByLabelText(/what is batman's real name\?/i);
   await user.type(input, "Bruce Wayne");
@@ -20,9 +25,7 @@ test("shows next question after submit correct answer", async () => {
 });
 
 test("shows next question after submit wrong answer", async () => {
-  const user = userEvent.setup();
-
-  render(<Page />);
+  const { user } = setup(<Page />);
 
   const input = screen.getByLabelText(/what is batman's real name\?/i);
   await user.type(input, "Clark Kent");
@@ -39,9 +42,7 @@ test("shows next question after submit wrong answer", async () => {
 });
 
 test("shows game over text after finish questions", async () => {
-  const user = userEvent.setup();
-
-  render(<Page />);
+  const { user } = setup(<Page />);
 
   const button = screen.getByRole("button", { name: /submit answer/i });
   await user.click(button);
