@@ -7,7 +7,7 @@ title: Unit Testing React
   {% for page in site.pages %}
   {% if page.title and page.url != "/" %}
   <li>
-    <a href="/unit-testing-react/{{ page.url }}">{{ page.title }}</a>
+    <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
   </li>
   {% endif %}
   {% endfor %}
