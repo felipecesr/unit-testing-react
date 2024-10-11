@@ -1,5 +1,7 @@
 # Unit Testing React
 
+[Please click here](https://felipecesr.github.io/unit-testing-react/) to head to the course website.
+
 ## How to run this project
 
 Clone this repository to your local computer.
