@@ -50,7 +50,7 @@ function expect(result) {
   };
 }
 
-export function test(title, callback) {
+function test(title, callback) {
   try {
     callback();
     console.log(`PASSED: ${title}`);
